@@ -1,0 +1,122 @@
+<!--分类-->
+<% if (site.categories.length){ %>
+<div class="widget tag">
+  <h3 class="title"><%= __('categories') %></h3>
+  <%- list_categories(site.categories) %> 
+</div>
+<% } %>
+
+
+<!--标签云-->
+<% if (site.tags.length){ %>
+<div class="widget tagcloud">
+  <h3 class="title"><%= __('tagcloud') %></h3>
+  <div class="entry">
+    <%- tagcloud(site.tags, {}) %>
+  </div>
+</div>
+<% } %>
+
+
+<!--归档-->
+<% if (site.categories.length){ %>
+<div class="widget tag">
+  <h3 class="title"><%= __('archives') %></h3>
+  <%- list_archives({ format:'YYYY年 MM月', order:-1, show_count:true }) %>
+</div>
+<% } %>
+
+
+
+<!--搜索-->
+<!--遮罩层-->
+<div class="md-overlay"></div>
+<!--搜索和结果区-->
+<div class="md-modal md-effect-1" id="modal-1">
+    <div class="md-content">
+        <div style="padding:10px 20px 10px 10px; text-align:right; color:#74787d; cursor:pointer; border-top-left-radius:5px;border-top-right-radius:5px;border: 0px solid;">
+            <i id="my-close-search-btn" class="fa fa-close fa-lg md-close"></i>
+        </div>
+        <input class="mysearch-input" autocomplete="off" id="local-search-input" name="q" results="0" placeholder="搜索关键字" class="form-control" onchange="searchFunc('/', 'local-search-input', 'local-search-result')" />
+        <div id="local-search-result" class="local-search-result" style="max-height:360px; overflow:scroll;overflow-y:auto; overflow-x:auto;position:relative;"></div>
+    </div>
+</div>
+
+<script type="text/javascript">      
+     var search_path = "<%= config.search.path %>";
+     if (search_path.length == 0) {
+        search_path = "search.xml";
+     }
+     var path = "<%= config.root %>" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+
+<!-- 返回顶部/赏-->
+<style type="text/css">
+  .fa-back-to-top:before {
+      content: "顶";
+  }
+  .fa-shang:before {
+      content: "赏";
+  }
+  .fa-sidebar-left:before {
+      content: "目"
+  }
+  .md-close-shang {
+    border: none;
+    padding: 0.9em 1.2em;
+    background: #285f8c;
+    color: #fff;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    margin: 3px 2px;
+    border-radius: 2px;
+  }
+  .h3-shang {
+    margin: 0;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 200;
+    opacity: 0.8;
+    background: rgba(0,0,0,0.1);
+    border-radius: 3px 3px 0 0;
+  }
+</style>
+
+<!--顶-->
+<a href="#" id="back-to-top" style="display:block;position:fixed;right:10px;bottom:10px;background:rgba(28, 51, 58, 0.45);color:#fff;text-align:center;z-index:1024;display:none;">
+  <i class="fa fa-back-to-top" style="display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing:grayscale; width:40px;height:40px;line-height:40px;"></i>
+</a>
+
+<!--赏-->
+<a href="javascript:void(0);" id="shang" class="md-trigger" data-modal="modal-8" style="display:block;position:fixed;right:10px;bottom:51px;background:rgba(28, 51, 58, 0.45);color:#fff;text-align:center;z-index:1024;">
+  <i class="fa fa-shang" style="display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing:grayscale; width:40px;height:40px;line-height:40px;"></i>
+</a>
+
+<!--目-->
+<a href="javascript:void(0);" id="sidebar-left-link" data-pushbar-target="sidebar-left" style="display:block;position:fixed;right:10px;bottom:92px;background:rgba(28, 51, 58, 0.45);color:#fff;text-align:center;z-index:1024;">
+  <i class="fa fa-sidebar-left" style="display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing:grayscale; width:40px;height:40px;line-height:40px;"></i>
+</a>
+
+
+<!--奖赏二维码-->
+<div class="md-modal md-effect-8" id="modal-8" style="width:auto;">
+    <div class="md-content" style="padding:10px 20px 20px 20px">
+        <div id="shang-header" style="padding:15px 24px 24px">
+            <h3 class="h3-shang">你的支持就是我们最大的动力！</h3>
+        </div>
+        <div id="shang-body" style="text-align:center;">
+            <img src="<%= config.root %>img/keyllo-pay.jpg" style="width:180px;">
+        </div>
+        <div id="shang-footer" style="padding: 10px 24px 24px;"> 
+            <button class="md-close md-close-shang" style="outline:medium;">残忍关闭 (＞﹏＜)</button>
+        </div>
+     </div>
+</div>
+
+

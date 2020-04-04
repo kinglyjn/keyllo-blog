@@ -1,0 +1,114 @@
+.pushbar.opened{
+	display: block;
+}
+
+html.pushbar_locked{
+    overflow: hidden;
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+.pushbar_locked .pushbar_main_content.pushbar_blur{
+	filter:blur(15px);
+}
+.pushbar{
+	z-index: 1000;
+	position: fixed;
+	will-change: transform;
+	overflow-y: auto;
+	transition:transform 0.5s ease;
+	will-change: transform;
+	background:rgba(0, 0, 0, 0.71);
+        padding-right: 20px;
+}
+.pushbar_overlay{
+	z-index: -999;
+	position: fixed;
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	top: 0;
+	left: 0;
+    	will-change: opacity;
+    	transition:opacity 0.5s ease;
+    	opacity:0;
+    	will-change: opacity;
+	background: rgba(2, 2, 2, 0.5);
+}
+html.pushbar_locked .pushbar_overlay{
+	opacity:0.8;
+	z-index: 999;
+    	transition:opacity 0.5s ease;
+}
+
+
+.pushbar.from_left{
+	top: 0;
+	left: 0;
+	width: 256px;
+	max-width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	transform: translateZ(0) translateX(-100%);
+}
+
+.pushbar.from_right{
+	top: 0;
+	right: 0;
+	width: 256px;
+	max-width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	transform: translateZ(0) translateX(100%);
+}
+
+.pushbar.from_top{
+	top: 0;
+	left: 0;
+	width: 100%;
+	max-width: 100%;
+	min-height: 150px;
+	transform: translateZ(0) translateY(-100%);
+}
+.pushbar.from_bottom{
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	max-width: 100%;
+	min-height: 150px;
+	transform: translateZ(0) translateY(100%);
+}
+
+.pushbar.opened{
+   transform: translateX(0px) translateY(0px);
+}
+
+
+
+.sidebar-close{
+    width: 20px;
+    height: 21px;
+    position: relative;
+    display: inline-block;
+    vertical-align: text-bottom;
+    text-align: center;
+    cursor:pointer;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.sidebar-close:before, .sidebar-close:after {
+    position: absolute;
+    left: 10px;
+    content: ' ';
+    height: 21px;
+    width: 3px;
+    background-color: #b9b9b9;
+}
+.sidebar-close:before {
+  transform: rotate(45deg);
+}
+.sidebar-close:after {
+  transform: rotate(-45deg);
+}
+

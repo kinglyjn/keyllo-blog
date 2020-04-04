@@ -1,0 +1,23 @@
+menu:
+  首页: 
+#  归档: archives
+#  关于: about
+
+widgets:
+- search
+- category
+- tag
+
+excerpt_link: Read More
+
+twitter:
+  username: kinglyjn
+  show_replies: false
+  tweet_count: 5
+
+fancybox: true
+
+google_analytics:
+rss:
+
+

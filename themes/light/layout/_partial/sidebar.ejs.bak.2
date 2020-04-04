@@ -1,0 +1,48 @@
+<!--分类-->
+<% if (site.categories.length){ %>
+<div class="widget tag">
+  <h3 class="title"><%= __('categories') %></h3>
+  <ul class="entry">
+  <% site.categories.sort('name').each(function(item){ %>
+    <li><a href="<%- config.root %><%- item.path %>"><%= item.name %></a><small><%= item.posts.length %></small></li>
+  <% }); %>
+  </ul>
+</div>
+<% } %>
+
+
+<!--标签云-->
+<% if (site.tags.length){ %>
+<div class="widget tagcloud">
+  <h3 class="title"><%= __('tagcloud') %></h3>
+  <div class="entry">
+    <%- tagcloud(site.tags, {}) %>
+  </div>
+</div>
+<% } %>
+
+
+
+<!--搜索-->
+<!--遮罩层-->
+<div class="md-overlay"></div>
+<!--搜索和结果区-->
+<div class="md-modal md-effect-1" id="modal-1">
+    <div class="md-content">
+        <div style="padding:10px 20px 10px 10px; text-align:right; color:#74787d; cursor:pointer; border-top-left-radius:5px;border-top-right-radius:5px;border: 0px solid;">
+            <i class="fa fa-close fa-lg md-close"></i>
+        </div>
+        <input class="mysearch-input" autocomplete="off" id="local-search-input" name="q" results="0" placeholder="搜索关键字" class="form-control" onchange="searchFunc('/', 'local-search-input', 'local-search-result')" />
+        <div id="local-search-result" class="local-search-result" style="max-height:360px; overflow:scroll;overflow-y:auto; overflow-x:auto;position:relative;"></div>
+    </div>
+</div>
+
+<script type="text/javascript">      
+     var search_path = "<%= config.search.path %>";
+     if (search_path.length == 0) {
+        search_path = "search.xml";
+     }
+     var path = "<%= config.root %>" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+

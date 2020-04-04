@@ -1,0 +1,26 @@
+<nav id="pagination">
+  <% if (page.prev){ %>
+    <a href="<%- config.root %><%- page.prev_link %>" class="alignleft prev"><%= __('prev') %></a>
+  <% } %>
+  
+  <!--第n页--> 
+  <span style="display:inline-block; padding-left:20px; margin:0 auto; margin-bottom:50px; height:26px; line-height:26px; text-align:center;">
+    <span style="color:#eee;"> 第 <input type="text" id="jump_to_page_input" style="width:50px; padding:1px 4px 1px 4px; outline:medium; border:1px solid rgb(221, 221, 221); border-radius:2px;" placeholder="共<%- page.total %>页"> 页</span>
+  </span>  
+
+  <% if (page.next){ %>
+    <a href="<%- config.root %><%- page.next_link %>" class="alignright next"><%= __('next') %></a>
+  <% } %>
+  <div class="clearfix"></div>
+
+  <input type="hidden" id="jump_to_page_hidden_total" value="<%- page.total %>" />
+  <input type="hidden" id="jump_to_page_hidden_base" value="<%- page.base %>" />
+  <input type="hidden" id="jump_to_page_hidden_site" value="<%- config.url %><%- config.root %>" />
+
+</nav>
+
+
+<!--
+<%- paginator({ format:'page/%d/', mid_size:3 }) %>
+-->
+

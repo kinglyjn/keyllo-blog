@@ -1,0 +1,82 @@
+<article class="<%= item.layout %>">
+  <% if (item.photos && item.photos.length){ %>
+    <%- partial('post/gallery') %>
+  <% } %>
+  <div class="post-content">
+    <header>
+      <%- partial('post/title') %>
+      <% if (item.layout != 'page'){ %>
+        <!--<div class="icon"></div>-->
+        <time datetime="<%= item.date.toDate().toISOString() %>" style="margin-top:10px;">
+           <a style="text-decoration:none;" href="#"><i class="fa fa-diamond"></i> </a> 
+           <a style="text-decoration:none;" href="<%- config.root %>about">kinglyjn</a>&nbsp;&nbsp;&nbsp;&nbsp;
+           <a style="text-decoration:none;" href="<%- config.root %>archives"><%= item.date.format(config.date_format) %></a>&nbsp;&nbsp;&nbsp;&nbsp;
+           <% if (index){ %>
+           <% } else { %>
+           <a style="text-decoration:none;" href="javascript:void(0);">
+             <span id="busuanzi_container_page_pv">
+               阅读<span id="busuanzi_value_page_pv"></span>次
+             </span>
+           </a>
+           <% } %>
+
+        </time>
+      <% } %>
+    
+    </header>
+
+    <!--文章及文章目录-->
+    <div class="entry">
+      <% if (item.excerpt && index){ %>   <!--01-->
+        <%- item.excerpt %>
+      <% } else { if (item.toc !== false) {%>   <!--02-->
+             <aside data-pushbar-id="sidebar-left" class="pushbar from_left">
+                 <div class="title">
+                     <!-- <span data-pushbar-close class="sidebar-close push_right"></span> -->
+                     <h2 style="color:#b9b9b9; margin-top:40px; padding-left:20px; border-bottom:1px solid rgba(134, 134, 134, 0.4);"><%- page.title %></h2>
+                 </div>
+
+                 <!--目录-->
+                 <%- partial('post/toc') %>
+             </aside>
+
+             <script type="text/javascript">
+                $(function(){
+		    var pushbar = new Pushbar({
+		        blur:true,
+		        overlay:true,
+		    });
+
+                });
+	     </script>
+      <% } %>
+
+        <!--文章-->
+        <%- item.content %>
+      <% } %>
+    </div>
+    
+
+    <footer>
+      <% if (index){ %>
+        <% if (item.excerpt){ %>
+          <div class="alignleft">
+            <a href="<%- config.root %><%- item.path %>#more" class="more-link"><%= theme.excerpt_link %></a>
+          </div>
+        <% } %>
+
+        <% if (item.comment && config.disqus_shortname){ %>
+        <div class="alignright">
+          <a href="<%- item.permalink %>#disqus_thread" class="comment-link">Comments</a>
+        </div>
+        <% } %>
+      <% } else { %>
+        <%- partial('post/category') %>
+        <%- partial('post/tag') %>
+        <%- partial('post/share') %>
+
+      <% } %>
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>

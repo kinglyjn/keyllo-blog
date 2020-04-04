@@ -1,0 +1,30 @@
+<div class="alignleft">
+  <% if (config.author){ %>
+  
+  <div>
+  	<a href="mailto:kinglyjn@keyllo.com" target="_blank" rel="noopener" style="color:#c2c7d8;text-decoration:none;">kinglyjn@keyllo.com</a>
+        |
+        <span id="busuanzi_container_site_uv">
+          <span id="busuanzi_value_site_uv"></span> visitors
+        </span>
+  </div>
+  <div>
+  	&copy; <%= new Date().getFullYear() %> Keyllo Group | <i>京ICP备18027844号-1</i> | <i class="fa fa-wechat imgTip"></i>
+  </div>
+  <% } else { %>
+  &copy; <%= new Date().getFullYear() %> <%= config.title %>
+  <% } %>
+</div>
+
+<div class="clearfix"></div>
+
+
+<!--图片提示-->
+<script type="text/javascript" src="<%- config.root %>js/jquery.tinyTips.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		tinyTips('i.imgTip', 'white', '<img src="<%- config.root %>img/wechat.jpeg" /><br/>');
+	});
+</script>
+
+
