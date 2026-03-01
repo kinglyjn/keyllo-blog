@@ -1,12 +1,25 @@
 title: Java NIO 基础（下）
+
 author: kinglyjn
+
 tags:
-  - nio
-categories:
+
   - java
   - nio
+
+
+categories:
+
+  - java
+
+  - jnio
+
 date: 2018-09-18 13:20:00
+
 ---
+
+
+
 ## 非阻塞式网络通信
 
 ### 传统阻塞式通信模型和NIO非阻塞通信模型间的区别

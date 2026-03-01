@@ -1,12 +1,23 @@
 title: Spring Boot 简介及 hello world 应用的编写
+
 author: kinglyjn
+
 tags:
+
   - springboot
+
 categories:
-  - framework
-  - springboot
+
+  - java
+
+  - springx
+
 date: 2019-02-22 11:45:00
+
 ---
+
+
+
 ## spring boot 简介
 
 * 简化spring应用开发的一个框架

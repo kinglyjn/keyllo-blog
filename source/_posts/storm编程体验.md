@@ -1,18 +1,32 @@
 title: storm编程体验
+
 author: kinglyjn
+
 tags:
+
   - storm
+
 categories:
-  - dataops
-  - ''
-  - storm
+
+  - bigdata
+
+  - s̶t̶o̶r̶m̶
+
 date: 2018-12-17 17:29:00
+
 ---
+
+
+
 ## 需求
 
 模拟实时统计通话记录中 主叫-被叫 的通话次数。
 
+
+
 <!--more-->
+
+
 
 ## storm编程体验
 

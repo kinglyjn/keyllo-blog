@@ -1,12 +1,24 @@
 title: Java NIO 基础（上）
+
 author: kinglyjn
+
 tags:
-  - nio
-categories:
+
   - java
   - nio
+
+categories:
+
+  - java
+
+  - jnio
+
 date: 2018-09-18 02:56:00
+
 ---
+
+
+
 ## NIO 简介
 
 ### NIO是什么？
@@ -14,7 +26,11 @@ date: 2018-09-18 02:56:00
 * new IO或non blocking IO，java 1.4开始引入（JDK1.7+中的NIO统称为NIO.2）可以替代标准的java io api；
 * 与原来的io有着相同的作用和目的，但使用方式完全不同，`NOI面向缓冲区、是基于通道的IO操作`，文件的读写更加高效。
 
+
+
 <!--more-->
+
+
 
 ### 与传统IO有什么区别？
 

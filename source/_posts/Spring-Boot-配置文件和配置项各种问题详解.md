@@ -1,12 +1,23 @@
 title: Spring Boot 配置文件和配置项各种问题详解
+
 author: kinglyjn
+
 tags:
+
   - springboot
+
 categories:
-  - framework
-  - springboot
+
+  - java
+
+  - springx
+
 date: 2019-03-01 16:23:00
+
 ---
+
+
+
 ## spring boot的配置文件
 
 配置文件的作用：就是用来修改spring boot配置的默认值。

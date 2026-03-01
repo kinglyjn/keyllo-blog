@@ -1,12 +1,23 @@
 title: Spring Boot 日志管理
+
 author: kinglyjn
+
 tags:
+
   - springboot
+
 categories:
-  - framework
-  - springboot
+
+  - java
+
+  - springx
+
 date: 2019-03-06 12:45:00
+
 ---
+
+
+
 ## 说说日志框架的起源及现状
 
 比如说，公司中张三要开发一个大型系统，需要打印日志的功能，他的日志完善的过程如下：
@@ -17,7 +28,11 @@ date: 2019-03-06 12:45:00
 4. 公司又需要搭建新的系统，跟之前用的API不一样，张三需要给新的系统重新换上新的日志功能的实现包，zhangsan-logging-better.jar；
 5. 张三突然想到了jdbc与数据库驱动的设计方式，他写了一个统一的接口层（日志功能的一个抽象层logging-abstract.jar），然后他要做的就是给项目中导入具体的日志实现就可以了，张三之前写的日志框架都是实现的日志抽象接口；
 
+
+
 <!--more-->
+
+
 
 其实目前市面上的日志框架也非常丰富，包括：
 
@@ -217,6 +232,29 @@ logging.partern.file="%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n
   <artifactId>slf4j-log4j12</artifactId>
 </dependency>
 ```
+
+或者
+
+```xml
+<!--排除-->
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-web</artifactId>
+  <exclusions>
+    <exclusion>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-logging</artifactId><!--springboot默认使用的-->
+    </exclusion>
+  </exclusions>
+</dependency>
+<!--替换-->
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-log4j2</artifactId>
+</dependency>
+```
+
+
 
 【注】log4j.properties 示例：
 

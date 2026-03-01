@@ -1,16 +1,30 @@
 title: linux下编译和安装python3
+
 author: kinglyjn
+
 tags:
+
   - python
+  - ipython
+
+
 categories:
+
   - python
+
   - core
-  - ''
+
 date: 2019-01-19 16:21:00
+
 ---
+
+
+
 Linux下大部分系统默认自带python2.x的版本，最常见的是python2.6或python2.7版本，默认的python被系统很多程序所依赖，比如centos下的yum就是python2写的，所以默认版本不要轻易删除，否则会有一些问题，如果需要使用最新的Python3那么我们可以编译安装源码包到独立目录，这和系统默认环境之间是没有任何影响的，python3和python2两个环境并存即可。
 
 <!--more-->
+
+
 
 ## linux环境源码安装python3
 

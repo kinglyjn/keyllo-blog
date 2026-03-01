@@ -1,11 +1,24 @@
-title: Java内部类测试示例
+title:  Java内部类测试示例
+
 author: kinglyjn
-tags: []
-categories:
+
+tags:
+
   - java
-  - syntax
-date: 2018-09-10 18:32:00
+
+
+categories:
+
+  - java
+
+  - core
+
+date: 2016-08-30 11:22:17
+
 ---
+
+
+
 ## 概述
 
 1. 内部类是指在一个外部类的内部再定义一个类。类名不需要和文件夹相同。
@@ -13,6 +26,8 @@ date: 2018-09-10 18:32:00
 3. 内部类是一个编译时的概念，一旦编译成功，就会成为完全不同的两类。对于一个名为outer的外部类和其内部定义的名为inner的内部类，编译完成后出现outer.class和outer$inner.class两类，所以内部类的成员变量/方法名可以和外部类的相同。
 
 <!--more-->
+
+
 
 ## 内部类的分类
 

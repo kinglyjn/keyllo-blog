@@ -1,12 +1,21 @@
 title: mysql基础命令
 author: kinglyjn
 tags:
+
+  - databse
   - mysql
+
 categories:
-  - database
+
+  - db_cache
   - mysql
+
 date: 2019-01-03 20:09:00
+
 ---
+
+
+
 ### MySQL的权限管理（DCL）
 
 <!--more-->

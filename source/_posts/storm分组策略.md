@@ -1,18 +1,32 @@
 title: storm分组策略
+
 author: kinglyjn
+
 tags:
+
   - storm
+
 categories:
-  - dataops
-  - ''
-  - storm
+
+  - bigdata
+
+  - s̶t̶o̶r̶m̶
+
 date: 2018-12-17 20:14:00
+
 ---
+
+
+
 ### 内置分组策略
 
 storm 内置了 8 种流分组的方式，通过实现 CustomStreamGrouping 接口可以实现自定义的流分组。InputDeclarer 接口定义了不同的流分组方式，每当TopologyBuilder#setBolt 方法被调用就返回该对象，用于声明一个bolt的输入流以及这些流应当如何分组。该接口定义的所有分组方法如下：
 
+
+
 <!--more-->
+
+
 
 1. 随机分组（`shuffleGrouping`）：最常用的分组方式，它随机地分发元组到 bolt 上的任务，这样能保证每个任务得到基本相同数量的元组。例如如果希望 bolt2 读取 spout 和 bolt1 两个组件发送的tuple，则可以定义 bolt2 如下：
 ``` java

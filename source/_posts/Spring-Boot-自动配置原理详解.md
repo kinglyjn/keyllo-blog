@@ -1,12 +1,23 @@
 title: Spring Boot 自动配置原理详解
+
 author: kinglyjn
+
 tags:
+
   - springboot
+
 categories:
-  - framework
-  - springboot
+
+  - java
+
+  - springx
+
 date: 2019-03-01 16:52:00
+
 ---
+
+
+
 ## 引出问题
 
 大家有没有思考过这样一个问题，那就是spring boot配置文件到底能写什么？怎么写？为什么这样写？
@@ -16,7 +27,11 @@ date: 2019-03-01 16:52:00
 下面我们就带着这个疑问进行深入的探讨和分析。
 <br>
 
+
+
 <!--more-->
+
+
 
 
 ## 自动配置的原理解析

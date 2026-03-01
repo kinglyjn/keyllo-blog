@@ -1,13 +1,22 @@
 title: 大数据及hadoop概述
+
 author: kinglyjn
+
 tags:
+
   - hadoop
+
 categories:
-  - dataops
-  - ''
+
+  - bigdata
   - hadoop
-date: 2018-11-07 23:48:00
+
+date: 2018-09-14 14:38:00
+
 ---
+
+
+
 ## 大数据的概念
 
 ### 大数据到底是啥？

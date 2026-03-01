@@ -1,13 +1,23 @@
 title: 制作本地yum源
+
 author: kinglyjn
+
 tags:
+
   - linux
+  - yum
+
 categories:
-  - os
+
+  - ops
   - linux
-  - ''
+
 date: 2018-09-27 15:13:00
+
 ---
+
+
+
 ## 为什么要制作本地YUM源
 
 YUM 源虽然可以简化我们在 Linux 上安装软件的过程，但是生成环境通常无法上网，不能连接外网的 YUM 源，说以接就无法使用 yum 命令安装软件了。为了在内网中也可以 使用 yum 安装相关的软件，就要配置 yum 源。

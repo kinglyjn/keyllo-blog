@@ -1,12 +1,22 @@
 title: 初识java多线程
+
 author: kinglyjn
+
 tags:
+
+  - juc
   - thread
+
 categories:
+
   - java
-  - thread
+  - juc
+
 date: 2018-09-14 14:38:00
+
 ---
+
+
 
 ### 多线程与多线程概念
 

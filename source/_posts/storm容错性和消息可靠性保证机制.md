@@ -1,20 +1,34 @@
 title: storm容错性和消息可靠性保证机制
+
 author: kinglyjn
+
 tags:
+
   - storm
+
 categories:
-  - dataops
-  - ''
-  - storm
+
+  - bigdata
+
+  - s̶t̶o̶r̶m̶
+
 date: 2018-12-19 17:25:00
+
 ---
+
+
+
 ## storm的容错性机制
 
 ### Worker进程死亡
 
 当一个工作进程死亡，supervisor会尝试重启它，如果启动连续失败了一定的次数，无法发送心跳信息到 nimbus，则nimbus会在另一台主机上重新分配 Worker。<br><br>
 
+
+
 <!--more-->
+
+
 
 ### Supervisor节点死亡
 
@@ -88,7 +102,7 @@ spout 和 bolt 分别使用 SpoutOutputCollector 和 OutputCollector 发射消�
 5. 步骤5和7的bolt都没有产生新消息，所以ack()的时候分别向acker bolt提交了T2 和T3^T4^T5的ack值。
 6. 综上所述，本次spout产生的tuple树对应的ack值经过的运算为 T1^T2^T1^T3^T4^T5^T2^T3^T4^T5按照异或运算的规则，ack值最终正好归零。
 7. 步骤8为acker bolt发现根spout最终对应的的ack是0以后认为所有衍生出来的数据都已经处理成功，它会通知对应的spout，spout会调用相应的ack方法。
- 
+
 storm这个机制的实现方式保证了无论一个tuple树有多少个节点，一个根消息对应的追踪ack值所占用的空间大小是固定的，极大地节约了内存空间。<br><br>
 
 

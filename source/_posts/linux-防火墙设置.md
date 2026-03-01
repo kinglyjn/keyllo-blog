@@ -1,12 +1,27 @@
 title: linux 防火墙设置
+
 author: kinglyjn
+
 tags:
+
   - linux
+  - firewall
+  - iptables
+  - ufw
+
+
 categories:
-  - os
+
+  - ops
+
   - linux
+
 date: 2018-09-25 17:37:00
+
 ---
+
+
+
 ## 概述
 
 防火墙是整个数据包进入主机前的第一道关卡。防火墙主要通过Netfilter与TCPwrappers两个机制来管理的。

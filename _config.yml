@@ -5,9 +5,9 @@
 
 # Site
 title: K-空间
-subtitle: hello keyllo, hello world.
-description: K-空间 | keyllo space for sharing knowledge and technology | kinglyjn
-keywords: K-空间, keyllo space, kinglyjn
+subtitle: koo-hub, cool-code.
+description: K-空间 | code space for sharing knowledge and technology | kinglyjn
+keywords: K-空间, koohub, kinglyjn
 author: kinglyjn
 language:
   - zh-CN
@@ -17,10 +17,10 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.keyllo.com
+url: http://www.koohub.com
 root: /
 permalink: :year/:month/:day/:title/
-permalink_defaults:
+permalink_defaults: 
 
 
 # Directory
@@ -101,14 +101,18 @@ theme: light                       # 主题名称
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git 				       # 部署的类型，常用的是git
-  repo: git@keyllo.com:blog.git
+  repo: git@koohub.com:blog.git
   branch: master
 
 
 # Search
 search:
+  enable: true
   path: search.xml
+  #path: search.json 
   field: post
+  content: true # 关键：不包含正文内容
   format: html
-  limit: 100000
+  limit: 100
+
 

@@ -1,18 +1,32 @@
 title: Spring Boot 常用模板引擎 Thymeleaf
+
 author: kinglyjn
+
 tags:
+
+  - thymeleaf
   - springboot
+
 categories:
-  - framework
-  - springboot
+
+  - java
+
+  - springx
+
 date: 2019-05-31 19:34:00
+
 ---
+
+
+
 ### Spring Boot 的模板引擎
 
 现在市场上有很多模板引擎，比较典型的有 JSP、Velocity、Freemarker、Thymeleaf。所有模板引擎的思想都是一样的，都是通过组合 `数据` 和 `模板` 来生成 `目标文本`。Spring Boot 推荐的模板引擎是 Thymeleaf，语法简单，功能强大。
 <br>
 
 <!--more-->
+
+
 
 
 ### 使用Thymeleaf

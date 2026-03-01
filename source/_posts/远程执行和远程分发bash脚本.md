@@ -1,12 +1,23 @@
 title: 远程执行和远程分发bash脚本
+
 author: kinglyjn
+
 tags:
-  - linux
+
+  - shell
+  - ssh
+
 categories:
-  - os
+
+  - ops
   - linux
+
 date: 2018-11-07 10:51:00
+
 ---
+
+
+
 ## 关于bash脚本的四种执行模式以及环境变量加载顺序的说明
 
 ``` bash
@@ -145,6 +156,9 @@ done < $hosts
 
 ``` bash
 #!/bin/bash
+# 用法1： ./zcopy 它会尝试拷贝当前目录下所有内容
+# 用法2： ./zcopy /root/test.txt  它会尝试拷贝当前目录或文件到指定目标主机的相同路径下
+# 用法3： ./zcopy ./local.conf /etc/remote.conf  它会尝试拷贝当前目录或文件到指定目标主机的对应路径下
 
 # set env params
 hosts=/opt/zshells/hosts

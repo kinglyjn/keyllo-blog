@@ -1,13 +1,25 @@
 title: linux shell 基础（上）
+
 author: kinglyjn
+
 tags:
+
   - linux
+  - shell
+
+
 categories:
-  - os
+
+  - ops
+
   - linux
-  - ''
+
 date: 2018-09-20 23:46:00
+
 ---
+
+
+
 ## shell是啥？
 
 ### shell的概念

@@ -45,20 +45,224 @@ a
 .inner
   width page-width
   margin 0 auto
+  max-width 1800px    // 新增：给整体内容设一个最大上限，防止在 4K 屏上拉得太夸张
+  display flex        // 使用 flex 布局，自动处理左右对齐
+  justify-content space-between
   @media screen and (max-width: 1260px)
     width 100%
+    display block     // 窄屏恢复块状布局
 
 #main-col
-  width 900px
+  flex 1              // 【关键】主内容区自动伸缩，占据剩余所有空间
+  min-width 0         // 【关键】防止内容撑破 Flex 容器
+  overflow hidden     // 【关键】防止溢出内容（如代码块）破坏整体布局
+  width auto          // 覆盖掉之前的百分比
+  margin-right 50px   // 【关键】使用固定像素(px)作为呼吸间距，保证无论屏幕多大，间距都一致
+  // width 72%
   @media screen and (max-width: 1260px)
     width 100%
-    margin-right -300px
+    margin-right 0    // 窄屏时取消间距
   @media screen and (max-width: 900px)
-    margin-right 0
+    margin-right 0    
     float none
+
 
 #wrapper
   @media screen and (max-width: 1260px)
     margin-right 300px
   @media screen and (max-width: 900px)
     margin-right 0
+
+
+
+#header .inner
+  display flex
+  justify-content space-between
+  align-items center // 确保 logo 和菜单垂直居中对齐
+
+#header nav
+#main-nav
+  display flex
+  margin-left auto // 强制推至右侧
+
+
+
+.article-footer-copyright
+  margin 40px 0 20px
+  padding 15px 20px                // 减少左右内边距，更适合手机
+  background #fafafa
+  border 1px solid #eee
+  border-left 3px solid color-link
+  border-radius 4px
+  color #666
+  font-size 13px
+  line-height 1.8                  // 稍微收紧行高
+  position relative
+  overflow hidden
+
+  .copyright-item
+    display flex
+    align-items flex-start          // 【关键】由 center 改为 flex-start，让图标对齐文字第一行
+    margin-bottom 8px               // 增加条目间距
+    &:last-child
+      margin-bottom 0
+
+    i 
+      width 20px
+      margin-right 10px
+      margin-top 5px               // 【微调】让图标与第一行文字视觉对齐
+      color color-link
+      opacity 0.7
+      flex-shrink 0                // 【防止挤压】图标不被压缩
+      
+    span
+      color #333
+      font-weight 600
+      white-space nowrap           // 保持“标题：”等前缀不换行
+      flex-shrink 0                // 前缀不被压缩
+
+    a
+      color color-link
+      text-decoration none
+      word-break break-all         // 链接过长强制换行
+      &:hover
+        text-decoration underline
+        color #1a6d8c
+
+  // 移动端优化：调整文字大小和内边距
+  @media screen and (max-width: 600px)
+    padding 12px 15px              // 进一步压缩边距
+    font-size 12px                 // 稍微调小字号
+    &:after
+      display none                 // 手机端隐藏巨大的装饰背影，保持界面纯净
+
+  // 解决标题和链接可能撑破容器的问题
+  .copyright-item > span + text, 
+  .copyright-item > span + a
+    overflow hidden
+    text-overflow ellipsis         // 对超出部分稍微保护，或者让其自然换行
+
+
+
+
+
+/* 禁止移动端浏览器自动调整字体大小 */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 专门针对代码块强化 */
+pre, code {
+  -webkit-text-size-adjust: none;
+}
+
+/* 确保代码块在手机上不会撑破父容器，而是内部横向滚动 */
+.highlight, pre {
+  word-wrap: normal !important;   /* 不允许长单词强行换行 */
+  white-space: pre !important;    /* 保持原代码格式 */
+  overflow-x: auto !important;    /* 必须：允许横向滚动 */
+  width: auto;
+  max-width: 100%;                /* 限制最大宽度 */
+}
+
+/* 仅在小屏幕上，导航栏顶部垫一点空间 */
+@media screen and (max-width: 768px) {
+  #main-nav {
+    margin-top: 20px !important;   /* 在导航栏顶部垫一点空间 */
+    padding-top: 10px;
+  }
+}
+
+
+
+/* --- 公式移动端溢出处理 (兼容 KaTeX & MathJax) --- */
+
+/* 1. 针对 KaTeX 的块级公式 */
+.katex-display {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 10px 0;
+    -webkit-overflow-scrolling: touch;
+    text-align: left !important; /* 强制左对齐 */
+}
+
+/* 2. 针对 MathJax 3.x 的块级公式 */
+.mjx-container[display="true"] {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 10px 0;
+    -webkit-overflow-scrolling: touch;
+    text-align: left !important;
+    display: block !important;
+}
+
+/* 3. 针对 MathJax 2.x 的块级公式 */
+.MathJax_Display {
+    overflow-x: auto !important;
+    padding: 10px 0;
+    text-align: left !important;
+}
+
+/* 4. 优化滚动条样式（可选） */
+.katex-display::-webkit-scrollbar,
+.mjx-container::-webkit-scrollbar {
+    height: 3px;
+}
+.katex-display::-webkit-scrollbar-thumb,
+.mjx-container::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+/* 强制所有公式容器支持水平滚动 */
+.katex-display, 
+.mjx-container[display="true"], 
+.MathJax_Display {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding-bottom: 15px !important; /* 留出空间给滚动条，避免遮挡连分数底层 */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 针对你手动写的 inline-block div 进行补丁 */
+div[style*="display: inline-block"] {
+    max-width: 100%;
+}
+
+
+
+
+/* 针对 Owlias 的 blockquote 样式重置 */
+blockquote {
+    /* 基础布局 */
+    margin: 1.5em 0 !important;
+    padding: 10px 20px !important;
+    
+    /* 核心视觉细节：左侧灰色粗线条 */
+    border-left: 5px solid #dfe2e5 !important; 
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    
+    /* 背景与文字颜色 */
+    background-color: transparent !important; /* 保持背景纯净，或设为 #f8f9fa */
+    color: #6a737d !important;
+    
+    /* 强制排版纠偏 */
+    text-align: left !important; /* 解决你图中居中的问题 */
+    font-style: normal !important; /* 强制取消斜体 */
+    
+    /* 确保宽度正常 */
+    max-width: 100%;
+}
+
+/* 引用内的文字样式 */
+blockquote p {
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    font-size: 0.95em !important;
+}

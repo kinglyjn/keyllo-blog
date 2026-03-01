@@ -1,22 +1,40 @@
-title: ThreadLocal原理
+title:  ThreadLocal原理
+
 author: kinglyjn
+
 tags:
-  - thread
-categories:
+
   - java
   - thread
-date: 2018-09-14 15:27:00
+
+
+categories:
+
+  - java
+
+  - core
+
+date: 2016-12-02 16:22:21
+
 ---
+
+
 
 ### ThreadLocal是什么
 
 早在JDK 1.2的版本中就提供Java.lang.ThreadLocal，ThreadLocal为解决多线程程序的并发问题提供了一种新的思路。使用这个工具类可以很简洁地编写出优美的多线程程序。
 
+
+
 <!--more-->
+
+
 
 当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。
 
 从线程的角度看，目标变量就象是线程的本地变量，这也是类名中“Local”所要表达的意思。所以，在Java中编写线程局部变量的代码相对来说要笨拙一些，因此造成线程局部变量没有在Java开发者中得到很好的普及。
+
+
 
 ### ThreadLocal的方法
 
@@ -28,6 +46,8 @@ ThreadLocal类很简单，只有4个方法，我们先来了解一下：
 * protected Object initialValue() 返回该线程局部变量的初始值，该方法是一个protected的方法，显然是为了让子类覆盖而设计的。这个方法是一个延迟调用方法，在线程第1次调用get()或set(Object)时才执行，并且仅执行1次。ThreadLocal中的缺省实现直接返回一个null。
 
 值得一提的是，在JDK5.0中，ThreadLocal已经支持泛型，该类的类名已经变为ThreadLocal<T>。API方法也相应进行了调整，新版本的API方法分别是void set(T value)、T get()以及T initialValue()。
+
+
 
 ### ThreadLocal的使用
 
@@ -87,6 +107,8 @@ Thread-1----> sn:3
 ```
 
 我们发现每个线程所产生的序号虽然都共享同一个TestNum实例，但它们并没有发生相互干扰的情况，而是各自产生独立的序列号，这是因为我们通过ThreadLocal为每一个线程提供了单独的副本。
+
+
 
 ### ThreadLocal和线程同步机制的比较
 
@@ -253,6 +275,8 @@ public class ConnectionManager {
     }       
 }
 ```
+
+
 
 ### ThreadLocal的实现原理
 

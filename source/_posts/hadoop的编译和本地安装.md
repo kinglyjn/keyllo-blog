@@ -1,13 +1,22 @@
 title: hadoop的编译和本地安装
+
 author: kinglyjn
+
 tags:
+
   - hadoop
+
 categories:
-  - dataops
-  - ''
+
+  - bigdata
   - hadoop
-date: 2018-11-07 23:57:00
+
+date: 2018-09-27 15:13:00
+
 ---
+
+
+
 ## hadoop 源码的编译（v2.7.6）
 
 Hadoop是使用Java语言开发的，但出于性能、安全等角度考虑，hadoop部分功能（如压缩）使用系统本地库(Native Libraries)实现。本地库是由C/C++编写的动态库xxx.so（windows下对应xxx.dll文件），并通过JNI(Java Native Interface)机制为java层提供接口。由于不同的处理器架构，需要编译出相应平台的动态库(xxx.so)文件，才能被正确的执行，所以最好重新编译一次hadoop源码，让xxx.so文件与自己处理器相对应。如下是编译hadoop应用的一般步骤：

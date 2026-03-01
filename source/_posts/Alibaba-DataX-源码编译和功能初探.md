@@ -1,13 +1,23 @@
 title: Alibaba DataX 源码编译和功能初探
+
 author: kinglyjn
+
 tags:
-  - datax
-categories:
-  - dataops
-  - ''
+
   - ETL
-date: 2018-11-23 16:44:00
+  - datax
+
+categories:
+
+  - bigdata
+  - etl
+
+date: 2018-09-27 15:13:00
+
 ---
+
+
+
 ## DataX简介
 
 ### 设计理念

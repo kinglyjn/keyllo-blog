@@ -11,9 +11,18 @@
       	<li style="margin-left:25px;"><a href="<%- config.root %><%- theme.menu[i] %>"><%= i %></a></li>
       <% } %>
     <% } %>
-    <li style="margin-left:25px;"><a href="http://archive.keyllo.com/">K档</a></li>
+
+    <% if(page.mathjax) {%>
+      <%- partial('mathjax')%>
+    <% } %>
+
+    <li style="margin-left:25px;"><a href="http://www.koohub.com/meta">META</a></li>
+    <li style="margin-left:25px;"><a href="http://www.koohub.com/physis">PHYSIS</a></li>
+    <li style="margin-left:25px;"><a href="http://www.koohub.com/soc">SOC</a></li>
     <li style="margin-left:25px;"><a href="/about">关于</a></li>
-    <li><a href="javascript:void(0);"> <i id="my-open-search-btn" class="fa fa-search fa-lg md-trigger" data-modal="modal-1"></i> </a></li>
+    <li style="margin-left:25px;"><a href="http://archive.koohub.com/"><i class="fa fa-bars"></i></a></li>
+    <li style="margin-left:25px;"><a href="http://manage.koohub.com/login"><i class="fa fa-sign-in fa-lg"></i></a></li>
+    <!-- <li><a href="javascript:void(0);"> <i id="my-open-search-btn" class="fa fa-search fa-lg md-trigger" data-modal="modal-1"></i> </a></li> -->
   </ul>
   <div class="clearfix"></div>
 </nav>

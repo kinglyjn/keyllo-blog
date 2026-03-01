@@ -18,7 +18,8 @@
     function bodybg() {
         var today_num = new Date().getDate();
         var primary_body = document.getElementById('primary_body');
-        primary_body.style.background = "url('/img/bg-small/" + today_num + ".svg')";
+        var bgBaseUrl = "<%- url_for('img/bg-small/') %>";
+        primary_body.style.background = "url('" + bgBaseUrl + today_num + ".svg')";
     }
   </script>
 </body>

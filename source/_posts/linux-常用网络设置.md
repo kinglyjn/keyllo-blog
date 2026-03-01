@@ -1,12 +1,25 @@
 title: linux 常用网络设置
+
 author: kinglyjn
+
 tags:
+
   - linux
+  - network
+
+
 categories:
-  - os
+
+  - ops
+
   - linux
+
 date: 2018-09-25 17:16:00
+
 ---
+
+
+
 ## ubuntu系统
 
 ### 配置网络设备
@@ -75,11 +88,12 @@ IPADDR=表示该网卡的IP地址
 PREFIX=子网掩码
 GATEWAY=表示网关
 DNS*=表示DNS
+
 # 例如
 TYPE=Ethernet
 PROXY_METHOD=none
 BROWSER_ONLY=no
-BOOTPROTO=dhcp
+BOOTPROTO=dhcp  ###
 DEFROUTE=yes
 IPV4_FAILURE_FATAL=no
 IPV6INIT=yes
@@ -87,15 +101,30 @@ IPV6_AUTOCONF=yes
 IPV6_DEFROUTE=yes
 IPV6_FAILURE_FATAL=no
 IPV6_ADDR_GEN_MODE=stable-privacy
-NAME=enp0s8
+NAME=eth0   ###
 UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-DEVICE=ifcfg-eth0
-ONBOOT=yes
-DNS1=114.114.114.114
-DNS2=8.8.8.8
+DEVICE=eth0 ###
+ONBOOT=yes  ###
+
+IPADDR=192.168.1.149  ###
+NETMASK=255.255.255.0 ###
+GETWAY=192.168.1.1    ###
+DNS1=114.114.114.114  ###
+DNS2=8.8.8.8          ###
+
 
 # 重启网络服务
 $ sudo service network restart
+
+### 对于 CentOS 7 老系统中，设置静态 IP 最好关闭 NetworkManager
+# 1. 停止 NetworkManager 服务
+sudo systemctl stop NetworkManager
+# 2. 禁止 NetworkManager 开机自启
+sudo systemctl disable NetworkManager
+# 3. 此时再重启传统的网络服务
+sudo systemctl stop network
+sudo ip addr flush dev eth0  # 清理网卡状态
+sudo systemctl start network
 ```
 
 ### 配置DNS

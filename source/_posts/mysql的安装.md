@@ -1,12 +1,21 @@
 title: mysql的安装
 author: kinglyjn
 tags:
+
+  - databse
   - mysql
+
 categories:
-  - database
+
+  - db_cache
   - mysql
+
 date: 2019-01-03 19:54:00
+
 ---
+
+
+
 ## MySQL安装（以CentOS7为例）
 
 ### 准备工作

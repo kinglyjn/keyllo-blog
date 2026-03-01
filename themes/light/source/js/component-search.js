@@ -207,6 +207,7 @@ var searchFunc = function(path, search_id, content_id) {
     $.ajax({
         url: path,
         dataType: "xml",
+        //dataType: "json",
         success: function( xmlResponse ) {
             // get the contents from search data
             var datas = $( "entry", xmlResponse ).map(function() {
@@ -252,10 +253,13 @@ var searchFunc = function(path, search_id, content_id) {
                             }
                         });
                     }
+
+                    // console.log(data_url);
+
                     // show search results
                     if (isMatch) {
                         // 注意超链接以根路径为基础
-                        str += "<li><a href='/"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
                         var content = data.content.trim().replace(/<[^>]+>/g,"");
                         if (first_occur >= 0) {
                             // cut out 90 characters

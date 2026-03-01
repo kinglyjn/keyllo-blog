@@ -1,12 +1,23 @@
-title: '形如data:image/png的data类型的Url格式'
+title: 形如data:image/png的data类型的Url格式
+
 author: kinglyjn
+
 tags:
-  - html5
+
+  - html
+  - image
+
 categories:
-  - html&css
-  - html5
-date: 2018-09-10 17:30:00
+
+  - frontend
+  - htmlx
+
+date: 2018-09-10 19:44:37
+
 ---
+
+
+
 所谓”data”类型的Url格式，是在RFC2397中 提出的，目的对于一些“小”的数据，可以在网页中直接嵌入，而不是从外部文件载入。例如对于img这个Tag，哪怕这个图片非常非常的小，小到只有一个 点，也是要从另外一个外部的图片文件例如gif文件中读入的，如果浏览器实现了data类型的Url格式，这个文件就可以直接从页面文件内部读入了。
 data类型的Url格式早在1998年就提出了，时至今日，Firfox、Opera、Safari和Konqueror这些浏览器都已经支持，但是IE直到7.0版本都还没有支持，IE不支持的东西太多了，也不差这一个。
 

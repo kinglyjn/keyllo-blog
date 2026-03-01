@@ -1,13 +1,24 @@
 title: mybatis 3.x 的三种使用方式及全局配置文件
 author: kinglyjn
 tags:
+
+  - mvc
   - mybatis
+
 categories:
-  - framework
-  - mybatis
+
+  - java
+  - mvcx
+
 date: 2019-01-07 16:40:00
+
 ---
+
+
+
 > mybatis的设计理念：`把SQL交给开发人员，把预编译、参数设置、sql执行、封装结果等步骤交给框架。`
+
+
 
 ## mybatis三种使用方式
 

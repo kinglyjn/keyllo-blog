@@ -1,12 +1,25 @@
 title: linux shell 基础 （中）
+
 author: kinglyjn
+
 tags:
+
   - linux
+  - shell
+
+
 categories:
-  - os
+
+  - ops
+
   - linux
+
 date: 2018-09-21 10:03:00
+
 ---
+
+
+
 ## 分支流程
 
 ### if语句

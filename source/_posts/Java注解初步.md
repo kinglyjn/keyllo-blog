@@ -1,12 +1,25 @@
 title: Java注解初步
+
 author: kinglyjn
+
 tags:
-  - annotation
-categories:
+
   - java
   - annotation
-date: 2018-09-10 16:43:00
+
+
+categories:
+
+  - java
+
+  - core
+
+date: 2016-11-07 11:21:12
+
 ---
+
+
+
 ## 元注解
 
 要深入学习注解，我们就必须能定义自己的注解，并使用注解，在定义自己的注解之前，我们就必须要了解Java为我们提供的元注解和相关定义注解的语法。元注解的作用就是负责注解其他注解。Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：

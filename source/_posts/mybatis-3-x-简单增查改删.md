@@ -1,13 +1,21 @@
 title: mybatis 3.x 简单增查改删
 author: kinglyjn
 tags:
+
+  - mvc
   - mybatis
+
 categories:
-  - framework
-  - ''
-  - mybatis
+
+  - java
+  - mvcx
+
 date: 2019-01-07 19:18:00
+
 ---
+
+
+
 ### 定义mapper接口
 
 ``` java

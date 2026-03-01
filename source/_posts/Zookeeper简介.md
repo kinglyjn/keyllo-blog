@@ -1,14 +1,27 @@
-title: Zookeeper简介
+title:  Zookeeper简介
+
 author: kinglyjn
+
 tags:
+
   - zookeeper
+
+
 categories:
-  - dataops
-  - ''
-  - zookeeper
+
+  - micros
+
+  - zk
+
 date: 2018-10-25 17:08:00
+
 ---
+
+
+
 ## 概述
+
+
 
 ### ZK是啥？
 
@@ -218,7 +231,7 @@ stat /
 
 ## ZK权限管理（ACL）
 
-​传统的文件系统中，ACL分为两个维度，一个是属组，一个是权限，子目录/文件默认继承父目录的ACL。而在Zookeeper中，
+传统的文件系统中，ACL分为两个维度，一个是属组，一个是权限，子目录/文件默认继承父目录的ACL。而在Zookeeper中，
 node的ACL是没有继承关系的，是独立控制的。Zookeeper的ACL，可以从三个维度来理解：一是scheme; 二是user; 三
 是permission，通常表示为 `scheme:id:permissions`, 下面从这三个方面分别来介绍：
 
@@ -297,8 +310,8 @@ cZxid = 0x4140000008c
 numChildren = 0
 
 > delete /znode02
-``` 
- 
+```
+
 ## ZK的监听原理
 
 ![图3](/images/pasted-14.png)

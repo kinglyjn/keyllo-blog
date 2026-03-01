@@ -9,7 +9,14 @@
         <!--<div class="icon"></div>-->
         <time datetime="<%= item.date.toDate().toISOString() %>" style="margin-top:10px;">
            <a style="text-decoration:none;" href="#"><i class="fa fa-diamond"></i> </a> 
-           <a style="text-decoration:none;" href="<%- config.root %>about">kinglyjn</a>&nbsp;&nbsp;&nbsp;&nbsp;
+           
+           <% var displayAuthor = item.author || config.author || 'kinglyjn'; %>
+           <% if (displayAuthor === 'kinglyjn') { %>
+             <a style="text-decoration:none;" href="<%- config.root %>about">kinglyjn</a>
+           <% } else { %>
+             <a style="text-decoration:none;" href="javascript:void(0);"><%= displayAuthor %></a>
+           <% } %>&nbsp;&nbsp;&nbsp;&nbsp;
+
            <a style="text-decoration:none;" href="<%- config.root %>archives"><%= item.date.format(config.date_format) %></a>&nbsp;&nbsp;&nbsp;&nbsp;
            <% if (index){ %>
            <% } else { %>
@@ -28,6 +35,10 @@
     <!--文章及文章目录-->
     <div class="entry">
       <% if (item.excerpt && index){ %>   <!--01-->
+        <% if(item.mathjax) {%>
+          <%- partial('mathjax')%>
+        <% } %>
+        
         <%- item.excerpt %>
       <% } else { if (item.toc !== false) {%>   <!--02-->
              <aside data-pushbar-id="sidebar-left" class="pushbar from_left">
@@ -53,6 +64,29 @@
 
         <!--文章-->
         <%- item.content %>
+
+        <% if (!index && item.layout !== 'page'){ %>
+          <div class="article-footer-copyright">
+            <div class="copyright-item">
+              <i class="fa fa-pencil-square-o"></i>
+              <span>标题：</span>
+              <div class="item-content"><%- item.title %></div>
+            </div>
+            <div class="copyright-item">
+              <i class="fa fa-user-circle-o"></i>
+              <span>作者：</span>
+              <div class="item-content"><%- item.author || config.author %></div>
+            </div>
+            <div class="copyright-item">
+              <i class="fa fa-creative-commons"></i>
+              <span>声明：</span>
+              <div class="item-content">
+                引用 <a href="<%- item.permalink %>">本文</a> 请务必注明出处，原创不易，感谢尊重。
+              </div>
+            </div>
+          </div>
+        <% } %>
+
       <% } %>
     </div>
     

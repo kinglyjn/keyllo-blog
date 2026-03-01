@@ -1,12 +1,23 @@
-title: '自动化测试框架 selenium-java 简介和使用 '
+title: 自动化测试框架 selenium-java 简介和使用
+
 author: kinglyjn
+
 tags:
+
+  - devtools
   - selenium
+
 categories:
-  - framework
-  - selenium
-date: 2019-03-26 16:40:00
+
+  - java
+  - devtools
+
+date: 2018-09-27 15:13:00
+
 ---
+
+
+
 ## 简介
 
 ### 什么是Selenium?

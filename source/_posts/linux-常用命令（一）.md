@@ -1,14 +1,27 @@
 title: linux 常用命令（一）
+
 author: kinglyjn
+
 tags:
+
   - linux
+  - shell
+
+
 categories:
-  - os
+
+  - ops
+
   - linux
+
 date: 2018-09-26 21:12:00
+
 ---
+
+
+
 ### 开启网卡
-   
+
 CentOS7默认不启动网卡的（ONBOOT=no)，需要编辑ifcfg-xxx去开启。
 
 ``` bash

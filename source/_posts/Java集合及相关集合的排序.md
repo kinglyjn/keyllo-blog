@@ -1,12 +1,25 @@
 title: Java集合及相关集合的排序
+
 author: kinglyjn
+
 tags:
-  - collection
-categories:
+
   - java
-  - collection
-date: 2018-09-10 16:12:00
+  - sructure
+
+
+categories:
+
+  - java
+
+  - core
+
+date: 2015-05-14 11:13:56
+
 ---
+
+
+
 # 概述
 
 集合分为两大类，即Collection（List、ArrayList、LinkedList、Vector；HashSet、LinkedHashSet、TreeSet） 和 Map（HashMap、LinkedHashMap、TreeMap、Hashtable&Properties-古老的实现类线程安全并且键不能为null），Map的key使用set集合进行存储（组成keySet），所以map的key不能重复。使用Collections操作collection及map，使用Arrays操作数组。 

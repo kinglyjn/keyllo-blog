@@ -1,17 +1,102 @@
 title: linux shell 基础（下）
+
 author: kinglyjn
+
 tags:
+
   - linux
+  - shell
+
+
 categories:
-  - os
+
+  - ops
+
   - linux
+
 date: 2018-09-21 23:26:00
+
 ---
+
+
+
+## shell工具-grep
+
+在 Linux 的世界里，grep（Global Regular Expression Print）就像是一把瑞士军刀，是处理日志、分析代码和排查故障的必备神器。它的核心逻辑很简单：在文件中搜索特定的模式（Pattern），并将匹配的行打印出来。
+
+<!--more-->
+
+
+
+多目录递归搜索 (-r)
+
+```bash
+# 递归搜索
+grep -r "get_user_balance" ./src/
+# 配合排除目录
+grep -r "config" . --exclude-dir=node_modules
+```
+
+基础搜索与定位，这是最常见的用法，用于在海量文本中快速找到目标。
+
+```bash
+# 搜索关键字
+grep "error" sys.log
+# 不区分大小写（-i），（匹配 User_id, USER_ID 等）
+grep -i "user_id" app.log
+# 整词匹配（-w），避免匹配到 library
+grep -w "lib" config.txt
+# 显示行号（-n），快速定位代码行数
+grep -n "NullPointerException" debug.log
+vim +100 debug.log
+```
+
+生产排障：查看上下文 (-A, -B, -C)，这一招在分析 Java 堆栈轨迹（Stack Trace）时非常管用
+
+```bash
+# 显示后 5 行（-A, After）
+grep -A 5 "Exception" app.log
+# 显示前 5 行（-B, Before）
+grep -B 5 "Exception" app.log
+# 显示前后各 5 行（-C, Context）
+grep -C 5 "Exception" app.log
+```
+
+统计与过滤 (-v, -c, -l)
+
+```bash
+# 反向过滤（-v）
+cat /etc/redis/redis-origin.conf |grep -v "#" |grep -v "^$" > /etc/redis/redis.conf
+ps -ef | grep "java" | grep -v "grep"
+# 统计行数（-c），统计报错出现的总次数
+grep -c "ERROR" access.log
+# 只列出文件名（-l），找出包含该配置的所有文件
+grep -l "target_config" /etc/*.conf
+```
+
+正则表达式增强 (-E)
+
+```bash
+# 逻辑“或”匹配
+grep -E "error|critical|fatal" sys.log
+# 匹配 IP 地址示例
+grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" access.log
+```
+
+注意事项：
+
+* 性能问题： 在超大文件（数 GB 级别）上频繁 grep 可能会导致磁盘 I/O 飙升，建议配合 sed 或 awk 分段处理，或者先用 tail 或 grep 缩小范围。
+* 特殊字符： 如果搜索的内容包含 `*`、`[`、`$` 等，记得用单引号 `' '` 包裹。
+
+<br>
+
+
+
 ## shell工具-cut
 
 cut的工作就是“剪”，具体的说就是在文件中负责剪切数据用的。cut命令从文件的每一行剪切字节、字符和字段并将这些字节、字符和字段输出。注意cut操作文件内容并没有改变原文件内容，除非你使用重定向存储输出。
 
-<!--more-->
+
 
 ### 基本用法
 cut [选项参数] filename

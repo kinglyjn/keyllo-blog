@@ -1,12 +1,23 @@
 title: Spring Boot 对静态资源的映射分析
+
 author: kinglyjn
+
 tags:
+
   - springboot
+
 categories:
-  - framework
-  - springboot
+
+  - java
+
+  - springx
+
 date: 2019-03-06 17:44:00
+
 ---
+
+
+
 ### 关键代码
 
 springmvc的相关配置都在 `WebMvcAutoConfiguration` 中（还记的 XxxAutoConfiguration 和 XxxProperties吧），映射静态资源的关键代码如下：

@@ -1,13 +1,22 @@
 title: hadoop的完全分布式基本安装
+
 author: kinglyjn
+
 tags:
+
   - hadoop
+
 categories:
-  - dataops
-  - ''
+
+  - bigdata
   - hadoop
-date: 2018-11-08 03:43:00
+
+date: 2018-09-29 11:11:23
+
 ---
+
+
+
 ## hadoop完全分布式(fully)安装
 
 ### 主机资源的整体规划

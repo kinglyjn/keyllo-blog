@@ -156,3 +156,12 @@ pre
 
   .deletion
     color #dc322f
+
+
+pre, code
+white-space pre-wrap       /* 强制代码换行 */
+word-wrap break-word       /* 强制单词折行 */
+overflow-x auto            /* 如果不想换行，则允许内部横向滚动而不撑开页面 */
+
+.entry-content
+  word-break break-word      /* 确保正文文字也会自动折行 */

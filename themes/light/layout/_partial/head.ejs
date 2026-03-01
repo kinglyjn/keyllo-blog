@@ -2,7 +2,38 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="copyright" content="keyllo group | kinglyjn">  
+  <meta name="copyright" content="koohub group | kinglyjn">  
+
+  <% if (page.katex || is_home() ) { %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" 
+      onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ],
+        ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        throwOnError : false
+      });">
+    </script>
+  <% } %>
+
+  <% if (page.mathjax) { %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+  <% } %>
+  
 
   <%
   var title = [];
@@ -39,7 +70,7 @@
     <meta property="og:image" content="<%= config.cover %>"/>
   <% } %>
 
-  <link rel="shortcut icon" href="http://www.keyllo.com/img/favicon.ico" />
+  <link rel="shortcut icon" href=""<%- config.root %>img/favicon.ico" />
   <link href="<%- config.root %>img/favicon.png" rel="icon">
   <link rel="alternate" href="<% if (theme.rss){ %><%- theme.rss %><% } else { %><%- config.root %>atom.xml<% } %>" title="<%= config.title %>" type="application/atom+xml">
   <link rel="stylesheet" href="<%- config.root %>css/style.css" media="screen" type="text/css">
@@ -55,8 +86,8 @@
   <!--搜索插件-->
   <script type="text/javascript" src="<%- config.root %>js/component-search.js"></script>
   <script>
-	// this is important for IEs
-	var polyfilter_scriptpath = '/js/';
+  // this is important for IEs
+  var polyfilter_scriptpath = '/js/';
 
         // 百度统计
         (function(){
@@ -83,4 +114,174 @@
   <!--左侧边栏插件--> 
   <script src="<%- config.root %>js/pushbar.js"></script> 
   <link rel="stylesheet" href="<%- config.root %>css/pushbar.css" type="text/css">
+
+
+  <style>
+  /* 打印机格式优化 */
+  @media print {
+      /* 隐藏：导航、侧边栏、搜索、打赏模态框、遮罩、浮动按钮 */
+      #header, 
+      #main-nav, 
+      .pushbar, 
+      #toc, 
+      #modal-8, 
+      #sidebar,
+      #busuanzi_container_page_pv,
+      .article-footer-copyright,
+      .md-modal, 
+      .md-overlay,
+      .sidebar-entry-btn-6tSbV4, 
+      .extra-tools-box-3TIWxU,
+      #my-open-search-btn,
+      span .caption,
+
+      footer,
+      .float-btn-box-y3jJtK {
+          display: none !important;
+      }
+
+      /* 恢复正文全宽排版 */
+      body, #primary_body, #content, #main-col {
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          background: none !important;
+      }
+
+      /* 移除所有交互产生的模糊效果 */
+      .md-content, .container {
+          filter: none !important;
+      }
+
+      /* 强力隐藏插件注入的根容器 */
+      #c4g-content-root,
+      [class*="content-root-"], /* 针对可能变化的类名进行模糊匹配 */
+      .sidebar-entry-btn-6tSbV4 {
+          display: none !important;
+          visibility: hidden !important;
+          width: 0 !important;
+          height: 0 !important;
+          overflow: hidden !important;
+      }
+
+
+      /* --- 1. 基础排版：使用学术论文常用的衬线体 --- */
+      body {
+          background: #fff !important;
+          color: #000 !important;
+          /* 优先使用宋体/新罗马，这种字体在纸质上阅读最专业 */
+          font-family: "Times New Roman", "SimSun", "Songti SC", serif !important;
+          /* 核心改动：减小字号，标准论文正文通常为 10.5pt - 11pt */
+          font-size: 11pt !important;
+          line-height: 1.5 !important;
+          text-align: justify !important; /* 两端对齐，学术感极强 */
+      }
+
+      /* --- 2. 标题优化：层级清晰 --- */
+      h1.title {
+          font-size: 22pt !important; /* 降低文章标题字号 */
+          text-align: center !important; /* 标题居中 */
+          margin-bottom: 30px !important;
+          font-weight: bold !important;
+      }
+
+      h2, h3 {
+          font-size: 14pt !important; /* 副标题不宜过大 */
+          margin-top: 20px !important;
+          border-bottom: 1px solid #eee !important; /* 淡淡的底线增加质感 */
+          padding-bottom: 5px !important;
+      }
+
+      /* --- 3. 引用块 (Blockquote)：优雅且略带倾斜 --- */
+      blockquote {
+          margin: 1.5em 2em !important;
+          padding: 5px 20px !important;
+          border-left: 4px solid #999 !important; /* 线条变细变淡 */
+          background: #fdfdfd !important;
+          font-style: italic !important; /* 字体微斜 */
+          font-size: 10.5pt !important; /* 引用块字体略小于正文 */
+          color: #444 !important;
+      }
+
+      /* --- 4. 公式优化：确保存档美观 --- */
+      .katex-display {
+          font-size: 1.1em !important; /* 公式可以比文字略大一圈方便观察 */
+          margin: 1.2em 0 !important;
+          overflow: visible !important;
+      }
+
+      /* --- 5. 页面间距优化 --- */
+      @page {
+          margin: 2.5cm 2.5cm !important; /* 留出足够的页边距，像出版物一样 */
+      }
+
+      /* --- 6. 移除所有不该出现的残余 --- */
+      #header, #main-nav, .pushbar, #toc, #modal-8, 
+      #c4g-content-root, .md-overlay, .sidebar-entry-btn-6tSbV4,
+      #busuanzi_container_page_pv, footer, i, .fa {
+          display: none !important;
+      }
+
+      /* --- 7. 图片控制 --- */
+      img {
+          max-width: 80% !important; /* 图片不占满全宽，显得更精致 */
+          display: block !important;
+          margin: 15px auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+      }
+      /* 让图片下方的 caption 标签居中 */
+      .caption {
+          display: block !important;    /* 必须转为块级，居中才生效 */
+          text-align: center !important;
+          width: 100% !important;
+          margin-top: 5px !important;    /* 与图片的间距 */
+          margin-bottom: 15px !important; /* 与下方正文的间距 */
+          font-size: 9pt !important;     /* 说明文字通常比正文略小，更专业 */
+          color: #666 !important;        /* 使用深灰色，显得精致 */
+          font-style: normal !important; /* 如果你希望它不跟随引用的倾斜 */
+      }
+
+      /* --- 重点改动：让作者、日期信息居中 --- */
+      .post-content header {
+          text-align: center !important; /* 强制 header 内容居中 */
+          width: 100% !important;
+          margin-bottom: 50px !important;
+      }
+
+
+      /* --- 针对代码块的打印专业优化 --- */
+      /* 1. 强制换行并缩小字号，适应纸张宽度 */
+      pre, code, .line {
+          white-space: pre-wrap !important;    /* 核心：保留空格并自动换行 */
+          word-wrap: break-word !important;   /* 强制长单词断行 */
+          font-family: Consolas, Monaco, monospace !important;
+          font-size: 9.5pt !important;        /* 调整为专业论文代码字号 */
+          color: #000 !important;
+      }
+
+      /* 2. 隐藏行号（打印版通常不需要，且能腾出更多横向空间） */
+      figure.highlight .gutter {
+          display: none !important;
+      }
+
+      /* 3. 美化容器：增加边框和背景 */
+      figure.highlight {
+          border-left: 3px solid #ddd !important; /* 只留左边框，3px 粗细较专业 */
+          border-top: none !important;
+          border-right: none !important;
+          border-bottom: none !important;
+          
+          background: #fdfdfd !important;
+          padding: 10px 15px !important; /* 适当加大内边距，防止代码贴边 */
+          margin: 1.2em 0 !important;
+      }
+
+      /* 4. 确保代码占满容器宽度 */
+      figure.highlight .code {
+          width: 100% !important;
+          padding: 0 !important;
+      }
+  }
+  </style>
 </head>

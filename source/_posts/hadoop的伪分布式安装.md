@@ -1,13 +1,22 @@
 title: hadoop的伪分布式安装
+
 author: kinglyjn
+
 tags:
+
   - hadoop
+
 categories:
-  - dataops
-  - ''
+
+  - bigdata
   - hadoop
-date: 2018-11-08 03:38:00
+
+date: 2018-09-29 15:12:13
+
 ---
+
+
+
 ## hadoop伪分布式(pseudo)安装
 
 ### 伪分布式的基本安装

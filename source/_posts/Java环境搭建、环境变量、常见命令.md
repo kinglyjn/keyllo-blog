@@ -1,12 +1,24 @@
-title: Java环境搭建、环境变量、常见命令
+title: Java 环境搭建、环境变量、常见命令
+
 author: kinglyjn
+
 tags:
-  - jvm
-categories:
+
   - java
-  - jvm
-date: 2018-09-10 15:33:00
+
+
+categories:
+
+  - java
+
+  - core
+
+date: 2015-03-10 15:33:00
+
 ---
+
+
+
 ## java 环境的搭建
 
 1) 下载

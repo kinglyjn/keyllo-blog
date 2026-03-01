@@ -1,19 +1,33 @@
 title: storm安装和配置
+
 author: kinglyjn
+
 tags:
+
   - storm
+
 categories:
-  - dataops
-  - ''
-  - storm
+
+  - bigdata
+
+  - s̶t̶o̶r̶m̶
+
 date: 2018-12-17 10:29:00
+
 ---
+
+
+
 ### 准备工作
 
 1) 安装java和python（略）
 2) 安装zookeeper
 
+
+
 <!--more-->
+
+
 
 ``` bash
 # 1. 下载、解压、配置环境变量

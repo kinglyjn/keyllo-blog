@@ -1,13 +1,23 @@
 title: storm简介
+
 author: kinglyjn
+
 tags:
+
   - storm
+
 categories:
-  - dataops
-  - ''
-  - storm
+
+  - bigdata
+
+  - s̶t̶o̶r̶m̶
+
 date: 2018-12-14 15:44:00
+
 ---
+
+
+
 ### storm是什么？
 
 * 免费、开源、分布式、高容错的实时计算系统；
